@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content%}
+    <h1>Dashboard</h1>
+    <p>Device name: {{ device["name"] }}</p>
+    <p>User name: <a href="{{ url_for('profile') }}">{{ user["first_name"] }} {{ user["last_name"] }}</a></p>
+    <br>
+    <h2>Recorded analyses</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('get_analysis', id = analysis_1['id']) }}">{{ analysis_1["name"] }}</a></td>
+            <td>{{ analysis_1["date"] }}</td>
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('get_analysis', id = analysis_2['id']) }}">{{ analysis_2["name"] }}</a></td>
+            <td>{{ analysis_2["date"] }}</td>
+        </tr>
+    </table>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Analysis data</h1>
+    <a href="{{ url_for('dashboard') }}">Go to dashboard</a>
+    <p>Name: {{ analysis["name"] }}</p>
+    <p>Date: {{ analysis["date"] }}</p>
+    <p>Comment: {{ analysis["comment"] }}</p>
+    <p style="font-weight: bold;">Spectra</p>
+    <table>
+        <tr>
+            <th>Intensity</th>
+            <th>Shift</th>
+        </tr>
+        {% for entry in analysis["spectra"] %}
+            <tr>
+                
+                <td>{{ entry[0] }}</td>
+                <td>{{ entry[1] }}</td>
+                
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
